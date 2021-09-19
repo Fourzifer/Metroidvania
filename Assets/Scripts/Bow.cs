@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bow : MonoBehaviour
 {
     public GameObject arrow;
+    public GameObject fireArrow;
+
     public float launchForce;
     public Transform shotPoint;
     Vector2 direction;
@@ -47,7 +49,26 @@ public class Bow : MonoBehaviour
             newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
         }
 
+        void ShootFire()
+        {
+            GameObject newArrow = Instantiate(fireArrow, shotPoint.position, shotPoint.rotation);
+            newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+        }
+
         if (Input.GetMouseButton(0))
+        {
+            pullingString = true;
+            if (launchForce < maxForce)
+            {
+                launchForce += forceAcceleration * Time.deltaTime;
+            }
+            else
+            {
+                launchForce = maxForce;
+            }
+        }
+
+        if (Input.GetMouseButton(1))
         {
             pullingString = true;
             if (launchForce < maxForce)
@@ -63,6 +84,13 @@ public class Bow : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Shoot();
+            launchForce = 5;
+            pullingString = false;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            ShootFire();
             launchForce = 5;
             pullingString = false;
         }

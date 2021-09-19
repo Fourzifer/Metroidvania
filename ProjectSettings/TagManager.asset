@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Arrow
   - Enemy
+  - Chain
+  - Box
+  - Wood
+  - FireArrow
+  - Locked Door
   layers:
   - Default
   - TransparentFX

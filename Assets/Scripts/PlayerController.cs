@@ -81,4 +81,14 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Locked Door" && Key.hasKey == true)
+        {
+            Key.hasKey = false;
+            Debug.Log("Door unlocked");
+            //Destroy(Key.lockedDoor);
+        }
+    }
 }

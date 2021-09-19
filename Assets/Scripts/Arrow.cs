@@ -22,16 +22,29 @@ public class Arrow : MonoBehaviour
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         hasHit = true;
         rb.velocity = Vector2.zero;
         //remember that they are kinematic and can't collide
         rb.isKinematic = true;
+
+        if (other.gameObject.tag == "Chain")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+
+        if (gameObject.tag == "FireArrow" && other.gameObject.tag == "Wood")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            Debug.Log("Fire");
+        }
     }
+
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
