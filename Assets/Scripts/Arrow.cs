@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    private Vector3 lastPosition;
+    public GameObject icePlatform;
 
     Rigidbody2D rb;
     bool hasHit;
@@ -49,6 +51,17 @@ public class Arrow : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            print("Water");
+            lastPosition = transform.position;
+            Instantiate(icePlatform, lastPosition, Quaternion.identity);
             Destroy(gameObject);
         }
     }

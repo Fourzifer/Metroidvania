@@ -21,10 +21,12 @@ public class PlayerController : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-        //extraJumps = extraJumpsValue;
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -79,6 +81,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W))
         {
             isJumping = false;
+        }
+
+        if (moveInput == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }
+
+        else if (moveInput > 0 || moveInput < 0)
+        {
+            anim.SetBool("isRunning", true);
         }
     }
 
