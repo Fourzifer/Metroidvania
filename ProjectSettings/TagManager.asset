@@ -12,6 +12,7 @@ TagManager:
   - FireArrow
   - Locked Door
   - Water
+  - IceArrow
   layers:
   - Default
   - TransparentFX

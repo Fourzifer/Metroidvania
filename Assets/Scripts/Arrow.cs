@@ -57,7 +57,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Water")
+        if (other.gameObject.tag == "Water" && gameObject.tag == "IceArrow")
         {
             print("Water");
             lastPosition = transform.position;
