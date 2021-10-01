@@ -14,7 +14,7 @@ public class Bow : MonoBehaviour
     public Transform shotPoint;
     Vector2 direction;
 
-    private int forceAcceleration = 10;
+    private int forceAcceleration = 15;
     private int maxForce = 15;
     public static bool pullingString = false;
 
