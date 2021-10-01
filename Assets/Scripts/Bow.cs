@@ -20,6 +20,13 @@ public class Bow : MonoBehaviour
 
     private int arrowType;
 
+    [SerializeField] private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +44,8 @@ public class Bow : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             pullingString = true;
+            anim.SetBool("isDrawing", true);
+
             if (launchForce < maxForce)
             {
                 launchForce += forceAcceleration * Time.deltaTime;
@@ -52,6 +61,7 @@ public class Bow : MonoBehaviour
             Shoot();
             launchForce = 5;
             pullingString = false;
+            anim.SetBool("isDrawing", false);
         }
 
         switch (arrowType)
