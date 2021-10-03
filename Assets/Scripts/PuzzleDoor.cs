@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PuzzleDoor : MonoBehaviour
 {
-
-    public int switches;
     public GameObject puzzleDoor;
+    public GameObject doorSwitch;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +16,14 @@ public class PuzzleDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DoorSwitch.switchActive == true)
+        if (DoorSwitch.isSwitchActive == true)
         {
             Destroy(gameObject);
         }
+
+        //if (gameObject.GetComponent<DoorSwitch>().isSwitchActive)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 }

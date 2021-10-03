@@ -5,12 +5,12 @@ using UnityEngine;
 public class DoorSwitch : MonoBehaviour
 {
 
-    public static bool switchActive;
+    public static bool isSwitchActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        switchActive = false;
+        isSwitchActive = false;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class DoorSwitch : MonoBehaviour
     {
         if (other.gameObject.tag == "Arrow")
         {
-            switchActive = true;
+            isSwitchActive = true;
             Debug.Log("Hit");
         }
     }

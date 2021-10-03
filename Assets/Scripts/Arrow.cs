@@ -9,11 +9,14 @@ public class Arrow : MonoBehaviour
 
     Rigidbody2D rb;
     bool hasHit;
+    //private bool canCollide;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //canCollide = false;
+        Physics2D.IgnoreLayerCollision(3, 6);
     }
 
     // Update is called once per frame
@@ -31,7 +34,13 @@ public class Arrow : MonoBehaviour
         hasHit = true;
         rb.velocity = Vector2.zero;
         //remember that they are kinematic and can't collide
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
+
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        Physics2D.IgnoreLayerCollision(3, 6, false);
+        //canCollide = true;
+
+        Destroy(gameObject, 3f);
 
         if (other.gameObject.tag == "Chain")
         {

@@ -83,19 +83,19 @@ public class Bow : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             arrowType = 1;
-            print(arrowType);
+            print("Standard");
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             arrowType = 2;
-            print(arrowType);
+            print("Fire");
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             arrowType = 3;
-            print(arrowType);
+            print("Ice");
         }
     }
 }
