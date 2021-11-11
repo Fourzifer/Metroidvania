@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         //canCollide = false;
-        Physics2D.IgnoreLayerCollision(3, 6);
+        //Physics2D.IgnoreLayerCollision(3, 6);
     }
 
     // Update is called once per frame
@@ -37,7 +37,8 @@ public class Arrow : MonoBehaviour
         //rb.isKinematic = true;
 
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        Physics2D.IgnoreLayerCollision(3, 6, false);
+        //Physics2D.IgnoreLayerCollision(3, 6, false);
+        gameObject.layer = 8;
         //canCollide = true;
 
         Destroy(gameObject, 3f);

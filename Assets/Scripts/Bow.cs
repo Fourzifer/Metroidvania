@@ -10,6 +10,8 @@ public class Bow : MonoBehaviour
     public GameObject iceArrow;
     private GameObject element;
 
+    public bool hasFire;
+
     public float launchForce;
     public Transform shotPoint;
     Vector2 direction;
@@ -25,6 +27,7 @@ public class Bow : MonoBehaviour
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        hasFire = false;
     }
 
     // Update is called once per frame
@@ -86,7 +89,7 @@ public class Bow : MonoBehaviour
             print("Standard");
         }
 
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && (hasFire == true))
         {
             arrowType = 2;
             print("Fire");

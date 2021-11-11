@@ -13,6 +13,7 @@ TagManager:
   - Locked Door
   - Water
   - IceArrow
+  - LaunchedArrow
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - Arrow
   - Ground
-  - 
+  - LaunchedArrow
   - 
   - 
   - 
