@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewAbility : MonoBehaviour
 {
-    public int abilityType;
+    public string abilityType;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +20,31 @@ public class NewAbility : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        switch (abilityType)
+        //switch (abilityType)
+        //{
+        //    case 1:
+        //        print("Unlocked Fire Arrows");
+        //        return;
+        //    default:
+        //        print("No type");
+        //        return;
+        //}
+        //Destroy(gameObject);
+        if (abilityType == "Fire")
         {
-            case 1:
-                print("Unlocked Fire Arrows");
-                return;
-            default:
-                print("No type");
-                return;
+            Debug.Log("Fire");
         }
+
+        if (abilityType == "Ice")
+        {
+            Debug.Log("Ice");
+        }
+
+        if (abilityType == "Iron")
+        {
+            Debug.Log("Iron");
+        }
+
         Destroy(gameObject);
     }
 }
