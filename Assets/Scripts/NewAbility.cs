@@ -5,6 +5,10 @@ using UnityEngine;
 public class NewAbility : MonoBehaviour
 {
     public string abilityType;
+    public static bool hasFire;
+    public static bool hasIce;
+    public static bool hasIron;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,17 +36,20 @@ public class NewAbility : MonoBehaviour
         //Destroy(gameObject);
         if (abilityType == "Fire")
         {
-            Debug.Log("Fire");
+            Debug.Log("Unlocked Fire");
+            hasFire = true;
         }
 
         if (abilityType == "Ice")
         {
             Debug.Log("Ice");
+            hasIce = true;
         }
 
         if (abilityType == "Iron")
         {
             Debug.Log("Iron");
+            hasIron = true;
         }
 
         Destroy(gameObject);
