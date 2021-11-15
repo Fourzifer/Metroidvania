@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class NewAbility : MonoBehaviour
 {
+    public GameObject abilityImage;
     public string abilityType;
     public static bool hasFire;
     public static bool hasIce;
     public static bool hasIron;
-
+    public static bool hasBoots;
 
     // Start is called before the first frame update
     void Start()
@@ -34,24 +35,36 @@ public class NewAbility : MonoBehaviour
         //        return;
         //}
         //Destroy(gameObject);
-        if (abilityType == "Fire")
-        {
-            Debug.Log("Unlocked Fire");
-            hasFire = true;
-        }
 
-        if (abilityType == "Ice")
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Ice");
-            hasIce = true;
-        }
+            if (abilityType == "Fire")
+            {
+                Debug.Log("Unlocked Fire");
+                hasFire = true;
+                abilityImage.SetActive(true);
+            }
 
-        if (abilityType == "Iron")
-        {
-            Debug.Log("Iron");
-            hasIron = true;
-        }
+            if (abilityType == "Ice")
+            {
+                Debug.Log("Ice");
+                hasIce = true;
+                abilityImage.SetActive(true);
+            }
 
-        Destroy(gameObject);
+            if (abilityType == "Iron")
+            {
+                Debug.Log("Iron");
+                hasIron = true;
+            }
+
+            if (abilityType == "Boots")
+            {
+                Debug.Log("Boots");
+                hasBoots = true;
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

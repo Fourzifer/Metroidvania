@@ -20,6 +20,8 @@ public class Bow : MonoBehaviour
 
     private int arrowType;
 
+    List<GameObject> shotArrows = new List<GameObject>();
+
     [SerializeField] private Animator anim;
 
     private void Start()
@@ -39,6 +41,8 @@ public class Bow : MonoBehaviour
         {
             GameObject newArrow = Instantiate(element, shotPoint.position, shotPoint.rotation);
             newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+            shotArrows.Add(newArrow);
+            //Debug.Log(shotArrows);
         }
 
         if (Input.GetMouseButton(0))

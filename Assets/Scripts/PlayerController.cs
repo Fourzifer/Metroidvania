@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
+    private bool hasExtraJump;
 
     private Animator anim;
 
@@ -60,8 +61,17 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
         {
             isJumping = true;
+            hasExtraJump = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if (NewAbility.hasBoots == true && isGrounded == false && hasExtraJump == true && Input.GetKeyDown(KeyCode.W))
+        {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = Vector2.up * jumpForce;
+            hasExtraJump = false;
         }
 
         if (Input.GetKey(KeyCode.W) && isJumping == true)
