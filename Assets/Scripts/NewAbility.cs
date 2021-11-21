@@ -5,37 +5,16 @@ using UnityEngine;
 public class NewAbility : MonoBehaviour
 {
     public GameObject abilityImage;
+    public GameObject bow;
     public string abilityType;
     public static bool hasFire;
     public static bool hasIce;
     public static bool hasIron;
     public static bool hasBoots;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public static bool hasArrows;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //switch (abilityType)
-        //{
-        //    case 1:
-        //        print("Unlocked Fire Arrows");
-        //        return;
-        //    default:
-        //        print("No type");
-        //        return;
-        //}
-        //Destroy(gameObject);
-
         if (other.gameObject.tag == "Player")
         {
             if (abilityType == "Fire")
@@ -62,6 +41,13 @@ public class NewAbility : MonoBehaviour
             {
                 Debug.Log("Boots");
                 hasBoots = true;
+            }
+
+            if (abilityType == "Arrows")
+            {
+                Debug.Log("Arrows");
+                hasArrows = true;
+                bow.SetActive(true);
             }
 
             Destroy(gameObject);

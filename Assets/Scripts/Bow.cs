@@ -42,7 +42,6 @@ public class Bow : MonoBehaviour
             GameObject newArrow = Instantiate(element, shotPoint.position, shotPoint.rotation);
             newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
             shotArrows.Add(newArrow);
-            //Debug.Log(shotArrows);
         }
 
         if (Input.GetMouseButton(0))

@@ -41,19 +41,29 @@ public class Arrow : MonoBehaviour
         gameObject.layer = 8;
         //canCollide = true;
 
-        Destroy(gameObject, 3f);
+        //Destroy(gameObject, 3f);
 
         if (other.gameObject.tag == "Chain")
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         if (gameObject.tag == "FireArrow" && other.gameObject.tag == "Wood")
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Debug.Log("Fire");
+        }
+
+        if (NewAbility.hasIron)
+        {
+            Destroy(gameObject, 3f);
+        }
+
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -61,7 +71,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
