@@ -6,6 +6,7 @@ public class NewAbility : MonoBehaviour
 {
     public GameObject abilityImage;
     public GameObject bow;
+    public GameObject itemDescription;
     public string abilityType;
     public static bool hasFire;
     public static bool hasIce;
@@ -48,7 +49,11 @@ public class NewAbility : MonoBehaviour
                 Debug.Log("Arrows");
                 hasArrows = true;
                 bow.SetActive(true);
+                //abilityImage.SetActive(true);
             }
+
+            if (itemDescription != null)
+                itemDescription.SetActive(true);
 
             Destroy(gameObject);
         }

@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
         }
 
-        if (NewAbility.hasBoots == true && isGrounded == false && hasExtraJump == true && Input.GetKeyDown(KeyCode.W))
+        if (NewAbility.hasBoots && !isGrounded && hasExtraJump && Input.GetKeyDown(KeyCode.W))
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             hasExtraJump = false;
         }
 
-        if (Input.GetKey(KeyCode.W) && isJumping == true)
+        if (Input.GetKey(KeyCode.W) && isJumping)
         {
             if (jumpTimeCounter > 0)
             {
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Locked Door" && Key.hasKey == true)
+        if (other.gameObject.tag == "Locked Door" && Key.hasKey)
         {
             Key.hasKey = false;
             Debug.Log("Door unlocked");
