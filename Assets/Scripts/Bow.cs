@@ -8,7 +8,7 @@ public class Bow : MonoBehaviour
     public GameObject arrow;
     public GameObject fireArrow;
     public GameObject iceArrow;
-    private GameObject element;
+    public GameObject element;
 
     public float launchForce;
     public Transform shotPoint;

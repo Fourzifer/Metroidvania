@@ -58,7 +58,15 @@ public class Arrow : MonoBehaviour
 
         if (NewAbility.hasIron)
         {
-            Destroy(gameObject, 3f);
+            if (other.gameObject.tag == "Dirt Wall" || other.gameObject.tag == "Player")
+            {
+                Destroy(gameObject, 3f);
+            }
+
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         else
@@ -83,6 +91,14 @@ public class Arrow : MonoBehaviour
             lastPosition = transform.position;
             Instantiate(icePlatform, lastPosition, Quaternion.identity);
             Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Fire" && gameObject.tag == "Arrow")
+        {
+            //GameObject elementalType = GameObject.Find("Bow");
+            //Bow bowScript = elementalType.GetComponent<Bow>();
+            //bowScript.element = arrow;
+            gameObject.tag = "FireArrow";
         }
     }
 }

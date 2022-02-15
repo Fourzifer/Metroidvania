@@ -33,6 +33,10 @@ public class MovingObject : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
     }
 
+    //public GameObject player;
+    //player.transform.parent = other.gameObject.transform;
+    //player.transform.parent = null;
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(pos1.position, pos2.position);

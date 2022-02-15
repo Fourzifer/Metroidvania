@@ -14,6 +14,10 @@ TagManager:
   - Water
   - IceArrow
   - LaunchedArrow
+  - Fire
+  - Torch
+  - Dirt Wall
+  - Moving Platform
   layers:
   - Default
   - TransparentFX

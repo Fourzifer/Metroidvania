@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool hasExtraJump;
 
     private Animator anim;
+    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
@@ -106,11 +107,26 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Locked Door" && Key.hasKey)
+        //if (other.gameObject.tag == "Locked Door" && Key.hasKey)
+        //{
+        //    Key.hasKey = false;
+        //    Debug.Log("Door unlocked");
+        //    //Destroy(Key.lockedDoor);
+        //}
+
+        if (other.gameObject.CompareTag("Moving Platform"))
         {
-            Key.hasKey = false;
-            Debug.Log("Door unlocked");
-            //Destroy(Key.lockedDoor);
+            Debug.Log("First check");
+            /*player.*/transform.parent = other.gameObject.transform;
+            Debug.Log("Second check");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Moving Platform"))
+        {
+            /*player.*/transform.parent = null;
         }
     }
 }

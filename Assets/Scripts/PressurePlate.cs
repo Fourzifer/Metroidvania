@@ -6,6 +6,7 @@ public class PressurePlate : MonoBehaviour
 {
     public static bool switchIsActive;
     public GameObject door;
+    //[SerializeField] private GameObject door;
 
     // Start is called before the first frame update
     void Start()

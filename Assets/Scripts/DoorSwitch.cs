@@ -5,7 +5,8 @@ using UnityEngine;
 public class DoorSwitch : MonoBehaviour
 {
 
-    public static bool isSwitchActive;
+    private bool isSwitchActive;
+    [SerializeField] private GameObject door;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class DoorSwitch : MonoBehaviour
         {
             isSwitchActive = true;
             Debug.Log("Hit");
+            Destroy(door);
         }
     }
 }
