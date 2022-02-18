@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ReduceOpacity : MonoBehaviour
 {
-    [SerializeField]
-    private SpriteRenderer building;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            building.color = new Color(1f, 1f, 1f, .5f);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
         }
     }
 
@@ -19,7 +18,7 @@ public class ReduceOpacity : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            building.color = new Color(1f, 1f, 1f, 1f);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
 
     }
